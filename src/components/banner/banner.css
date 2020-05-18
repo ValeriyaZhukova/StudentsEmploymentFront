@@ -1,0 +1,22 @@
+.banner
+{
+    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/img/banner.jpg");
+    height: 600px;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner h1
+{
+    color: #ffffff;
+    font-size: 50px;
+}
+
+.banner h3
+{
+    color: #ffffff;
+    font-size: 40px;
+}
+

@@ -1,0 +1,62 @@
+.logo
+{
+    width: 50px;
+}
+
+.header
+{
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0px 1px 2px 0px rgba(128,128,128,0.5);
+}
+
+.header .ant-menu
+{
+    display: flex;
+    align-items: center;
+    border: none;
+    height: 80px;
+    justify-content: space-around;
+}
+
+.ant-menu-item, .submenu-title-wrapper
+{
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.ant-menu-horizontal > .ant-menu-item:hover, .ant-menu-horizontal > .ant-menu-submenu:hover, .ant-menu-horizontal > .ant-menu-item-active, .ant-menu-horizontal > .ant-menu-submenu-active, .ant-menu-horizontal > .ant-menu-item-open, .ant-menu-horizontal > .ant-menu-submenu-open, .ant-menu-horizontal > .ant-menu-item-selected, .ant-menu-horizontal > .ant-menu-submenu-selected, .submenu-title-wrapper
+{
+    color: #2A4580;
+    border-bottom: none;
+}
+
+.ant-menu-item a:hover
+{
+    color: #2A4580;
+}
+
+.search
+{
+    width: 80%;
+}
+
+.ant-input-search-button
+{
+    background-color: #2A4580;
+    border: 1px solid #2A4580;
+}
+
+.ant-input-search-enter-button input + .ant-input-group-addon .ant-input-search-button:hover
+{
+    background-color: #2A4580;
+    border: 1px solid #2A4580;
+}
+
+.ant-menu-horizontal > .ant-menu-item, .ant-menu-horizontal > .ant-menu-submenu
+{
+    border-bottom: none;
+}
