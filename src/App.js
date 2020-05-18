@@ -4,6 +4,9 @@ import 'antd/dist/antd.css';
 import Header from './components/header';
 import Footer from "./components/footer";
 import Banner from "./components/banner";
+import VacancyList from "./components/vacancy-list";
+import CompanyList from "./components/company-list";
+import CareerCenterList from "./components/career-center-list";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from 'react-redux';
 import { store } from './store'
@@ -28,6 +31,9 @@ function App() {
           <Router>
             <Header/>
               <Route path="/" exact component={Banner}/>
+              <Route path="/" exact component={VacancyList}/>
+              <Route path="/" exact component={CompanyList}/>
+              <Route path="/" exact component={CareerCenterList}/>
             <Footer/>
           </Router>
         </div>

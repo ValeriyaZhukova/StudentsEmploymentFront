@@ -35,10 +35,10 @@ class Header extends Component
                     <Col span={6}>
                         <img style={{width: "80px"}} className={"logo"} src={logo} alt={""}/>
                     </Col>
-                    <Col span={10}>
+                    <Col span={12}>
                         {menu}
                     </Col>
-                    <Col span={8}>
+                    <Col span={6}>
                         <Search
                             className={"search"}
                             placeholder="Find a recipe"

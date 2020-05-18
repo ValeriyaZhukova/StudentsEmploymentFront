@@ -1,11 +1,12 @@
 .banner
 {
     background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/img/banner.jpg");
-    height: 600px;
+    height: 650px;
     background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 80px;
 }
 
 .banner h1

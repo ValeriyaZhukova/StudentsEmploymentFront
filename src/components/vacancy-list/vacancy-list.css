@@ -1,0 +1,44 @@
+/*
+.recipe-card
+{
+    height: 400px;
+}
+
+img
+{
+    width: 100%;
+    height: auto;
+}
+
+.recipe-img
+{
+    margin-bottom: 20px;
+}
+
+.recipe-list-row
+{
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    padding-left: 12%;
+    padding-right: 12%;
+}
+*/
+
+/*
+.description
+{
+    max-width: 1000px;
+    text-align: justify;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}*/
+
+.description
+{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
