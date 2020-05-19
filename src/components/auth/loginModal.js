@@ -1,10 +1,9 @@
-/*
 import React, { Component } from 'react';
-import { Modal, Button, Form, Input } from 'antd';
+import { Menu, Modal, Button, Form, Input } from 'antd';
 import axios from 'axios';
 import { loginUser } from '../../store/actions/authActions';
-import { connect } from 'react-redux';
-import Icon from "antd/es/icon";
+import { connect } from 'react-redux'
+import Icon from "@ant-design/icons/lib";
 
 class LogInModal extends Component {
 
@@ -19,7 +18,6 @@ class LogInModal extends Component {
     };
 
     render() {
-        const { getFieldDecorator } = this.props.form
         return (
             <Modal
                 visible={this.props.openLogIn}
@@ -27,27 +25,19 @@ class LogInModal extends Component {
                 onCancel={this.props.onClose}
                 footer={null}
             >
-                <Form onSubmit={this.handleSubmit} className="login-form">
-                    <Form.Item>
-                        {getFieldDecorator('username', {
-                            rules: [{ required: true, message: 'Please input your username!' }],
-                        })(
-                            <Input
-                                prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                placeholder="Username"
-                            />,
-                        )}
+                <Form onSubmit={this.handleSubmit} className="login-form" >
+                    <Form.Item name="email"  rules={[{ required: true }]}>
+                        <Input
+                            prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                            placeholder="Email address"
+                        />
                     </Form.Item>
-                    <Form.Item>
-                        {getFieldDecorator('password', {
-                            rules: [{ required: true, message: 'Please input your Password!' }],
-                        })(
+                    <Form.Item name="password"  rules={[{ required: true }]}>
                             <Input
                                 prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
                                 type="password"
                                 placeholder="Password"
-                            />,
-                        )}
+                            />
                     </Form.Item>
                     <Form.Item>
                         <Button type="primary" htmlType="submit" className="login-form-button">
@@ -62,5 +52,5 @@ class LogInModal extends Component {
     }
 }
 
-const wrappedLoginModal = Form.create({ name: 'login_modal' })(LogInModal);
-export default connect(null, {loginUser})(wrappedLoginModal);*/
+const wrappedLoginModal = (LogInModal);
+export default connect(null, {loginUser})(wrappedLoginModal);

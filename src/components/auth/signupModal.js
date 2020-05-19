@@ -1,4 +1,3 @@
-/*
 import React, { Component } from 'react'
 import {Modal, Button, Form, Input, Select, Tooltip, AutoComplete} from 'antd'
 import {loginUser, signupUser} from "../../store/actions/authActions";
@@ -30,26 +29,7 @@ class SignUpModal extends Component {
         this.setState({ confirmDirty: this.state.confirmDirty || !!value });
     };
 
-    compareToFirstPassword = (rule, value, callback) => {
-        const { form } = this.props;
-        if (value && value !== form.getFieldValue('password')) {
-            callback('Two passwords that you enter is inconsistent!');
-        } else {
-            callback();
-        }
-    };
-
-    validateToNextPassword = (rule, value, callback) => {
-        const { form } = this.props;
-        if (value && this.state.confirmDirty) {
-            form.validateFields(['confirm'], { force: true });
-        }
-        callback();
-    };
-
     render() {
-
-        const { getFieldDecorator } = this.props.form;
         const { autoCompleteResult } = this.state;
 
         const formItemLayout = {
@@ -74,14 +54,6 @@ class SignUpModal extends Component {
                 },
             },
         };
-        const prefixSelector = getFieldDecorator('prefix', {
-            initialValue: '86',
-        })(
-            <Select style={{ width: 70 }}>
-                <Option value="86">+86</Option>
-                <Option value="87">+87</Option>
-            </Select>,
-        );
 
         const websiteOptions = autoCompleteResult.map(website => (
             <AutoCompleteOption key={website}>{website}</AutoCompleteOption>
@@ -95,67 +67,24 @@ class SignUpModal extends Component {
                 footer={null}
             >
                 <Form {...formItemLayout} onSubmit={this.handleSubmit}>
-                    <Form.Item label="First name">
-                        {getFieldDecorator('first_name')(<Input />)}
+                    <Form.Item name="first_name">
+                        <Input placeholder="First name"/>
                     </Form.Item>
-                    <Form.Item label="Last name">
-                        {getFieldDecorator('last_name')(<Input />)}
+                    <Form.Item name="last_name">
+                        <Input placeholder="Last name"/>
                     </Form.Item>
-                    <Form.Item label="E-mail">
-                        {getFieldDecorator('email', {
-                            rules: [
-                                {
-                                    type: 'email',
-                                    message: 'The input is not valid E-mail!',
-                                },
-                                {
-                                    required: true,
-                                    message: 'Please input your E-mail!',
-                                },
-                            ],
-                        })(<Input />)}
+                    <Form.Item name="email"  rules={[{ required: true }]}>
+                        <Input placeholder="Email address"/>
                     </Form.Item>
-                    <Form.Item label="Password" hasFeedback>
-                        {getFieldDecorator('password', {
-                            rules: [
-                                {
-                                    required: true,
-                                    message: 'Please input your password!',
-                                },
-                                {
-                                    validator: this.validateToNextPassword,
-                                },
-                            ],
-                        })(<Input.Password />)}
+                    <Form.Item name="password"  rules={[{ required: true}]}>
+                        <Input type="password" placeholder="Password"/>
                     </Form.Item>
-                    <Form.Item label="Confirm Password" hasFeedback>
-                        {getFieldDecorator('confirm', {
-                            rules: [
-                                {
-                                    required: true,
-                                    message: 'Please confirm your password!',
-                                },
-                                {
-                                    validator: this.compareToFirstPassword,
-                                },
-                            ],
-                        })(<Input.Password onBlur={this.handleConfirmBlur} />)}
+                    <Form.Item name="confirm"  rules={[{ required: true}]}>
+                        <Input type="password" placeholder="Confirm Password"/>
                     </Form.Item>
-                    <Form.Item
-                        label={
-                            <span>
-                                Nickname&nbsp;
-                                <Tooltip title="What do you want others to call you?">
-                                    <Icon type="question-circle-o" />
-                                </Tooltip>
-                            </span>
-                        }
-                    >
-                        {getFieldDecorator('username', {
-                            rules: [{ required: true, message: 'Please input your nickname!', whitespace: true }],
-                        })(<Input />)}
+                    <Form.Item name="phone_number">
+                        <Input placeholder="Phone number"/>
                     </Form.Item>
-
                     <Form.Item {...tailFormItemLayout}>
                         <Button type="primary" htmlType="submit">
                             Register
@@ -167,5 +96,5 @@ class SignUpModal extends Component {
     }
 }
 
-const wrappedSignupModal = Form.create({ name: 'signup_modal' })(SignUpModal);
-export default connect(null, {signupUser})(wrappedSignupModal);*/
+const wrappedSignupModal = (SignUpModal);
+export default connect(null, {signupUser})(wrappedSignupModal);
